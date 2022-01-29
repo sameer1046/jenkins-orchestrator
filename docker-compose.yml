@@ -1,0 +1,44 @@
+version: '2.1'
+services:
+  jenkins:
+    build: .
+    image: jenkins-master
+    ports:
+      - 443:8080
+    container_name: jenkins-master
+    volumes:
+       - jenkins-master:/var/jenkins_home
+    restart: unless-stopped
+    environment: 
+      - LANG=C.UTF-8
+  agent1:
+    build:
+      context: .
+      dockerfile: /home/administrator/agent.Dockerfile
+    group_add:
+      - 998
+    image: jenkins-agent-docker
+    container_name: jenkins-agent
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+       - jenkins
+    volumes:
+       - /usr/bin/docker:/usr/bin/docker
+       - /var/run/docker.sock:/var/run/docker.sock
+       - /home/jenkins/blackduck/:/home/jenkins/blackduck/
+       - jenkins-agent:/home/jenkins/
+    environment:
+       - JENKINS_URL=http://jenkins:8080
+       - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+       - JENKINS_SECRET=************
+       - JENKINS_AGENT_NAME=A
+volumes:
+  jenkins-master:
+  jenkins-agent:
+
+        
+
+
+
