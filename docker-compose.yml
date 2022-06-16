@@ -12,12 +12,9 @@ services:
     environment: 
       - LANG=C.UTF-8
   agent1:
-    build:
-      context: .
-      dockerfile: /home/administrator/agent.Dockerfile
     group_add:
       - 998
-    image: jenkins-agent-docker
+    image: jenkins/inbound-agent
     container_name: jenkins-agent
     restart: unless-stopped
     extra_hosts:
