@@ -4,6 +4,7 @@ services:
     image: jenkins/jenkins:latest
     ports:
       - 8080:8080
+#      - 443:8443 # Enable for HTTPS connection
     container_name: jenkins-master
     volumes:
        - jenkins-master:/var/jenkins_home
@@ -14,7 +15,7 @@ services:
   agent:
     group_add:
       - 998
-    #image: jenkins/inbound-agent
+    #image: jenkins/inbound-agent:latest # Enable for jnpl agent
     image: jenkins/ssh-agent:latest
     container_name: jenkins-agent
     restart: unless-stopped
