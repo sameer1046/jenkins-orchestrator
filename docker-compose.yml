@@ -14,7 +14,8 @@ services:
   agent:
     group_add:
       - 998
-    image: jenkins/inbound-agent #or  jenkins/ssh-agent
+    #image: jenkins/inbound-agent
+    image: jenkins/ssh-agent:latest
     container_name: jenkins-agent
     restart: unless-stopped
     expose:
