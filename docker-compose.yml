@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
     environment: 
       - LANG=C.UTF-8
-#      - JENKINS_OPTS=--httpPort=8080 --httpsPort=8443 --httpsKeyStore="/var/jenkins_home/jenkins.jks" --httpsKeyStorePassword=jenkins # Enable for HTTPS connection
+#      - JENKINS_OPTS=--httpPort=8080 --httpsPort=8443 --httpsKeyStore="/var/jenkins_home/jenkins.jks" --httpsKeyStorePassword=***** # Enable for HTTPS connection
   agent:
     group_add:
       - 998
