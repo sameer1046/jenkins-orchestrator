@@ -16,8 +16,8 @@ services:
   agent:
     group_add:
       - 998
-    #image: jenkins/inbound-agent:latest # Enable for jnpl agent
-    image: jenkins/ssh-agent:latest
+    image: jenkins/inbound-agent:latest # Enable for jnpl agent
+    #image: jenkins/ssh-agent:latest # Enable for SSH agent
     container_name: jenkins-agent
     restart: unless-stopped
     user: root
@@ -33,7 +33,7 @@ services:
        - jenkins-agent:/home/jenkins/
     environment:
        - JENKINS_URL=http://jenkins:8080
-       - JENKINS_AGENT_WORKDIR=/home/jenkins/agent
+       - JENKINS_AGENT_WORKDIR=/home/jenkins/
        - JENKINS_SECRET=************
        - JENKINS_AGENT_NAME=NodeA
        - JENKINS_AGENT_SSH_PUBKEY=*****
