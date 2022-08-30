@@ -2,6 +2,7 @@ version: '2.1'
 services:
   jenkins:
     image: jenkins/jenkins:latest
+    user: root
     ports:
       - 8080:8080
 #      - 443:8443 # Enable for HTTPS connection
@@ -19,6 +20,7 @@ services:
     image: jenkins/ssh-agent:latest
     container_name: jenkins-agent
     restart: unless-stopped
+    user: root
     expose:
       - "22"
     extra_hosts:
