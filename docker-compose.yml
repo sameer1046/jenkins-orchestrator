@@ -22,8 +22,8 @@ services:
     restart: unless-stopped
     user: root
     #expose:  # Enable for SSH agent
-    #  - "22"
-    extra_hosts:  # Enable for SSH agent
+    #  - "22"  # Enable for SSH agent
+    extra_hosts:  
       - "host.docker.internal:host-gateway"
     depends_on:
        - jenkins
