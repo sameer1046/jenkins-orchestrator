@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Setup docker-compose
-        uses: KengoTODA/actions-setup-docker-compose@v1.0.9
+    - uses: KengoTODA/actions-setup-docker-compose@v1.0.9
         with:
           version: 3
       run: docker-compose up
