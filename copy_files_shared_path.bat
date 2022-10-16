@@ -1,0 +1,3 @@
+net use %SHARE_PATH% %PASSWORD% /USER:%DOMAIN%\%USER%
+xcopy %SHARE_PATH% %WORKSPACE%\    /s
+net use /DELETE %SHARE_PATH%
