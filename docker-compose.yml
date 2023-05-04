@@ -9,6 +9,7 @@ services:
     container_name: jenkins-master
     volumes:
        - jenkins-master:/var/jenkins_home
+       #- ./jenkins.jks:/var/jenkins_home/jenkins.jks
     restart: unless-stopped
     environment: 
       - LANG=C.UTF-8
